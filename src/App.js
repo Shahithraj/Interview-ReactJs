@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import Sidebar from './components/sidebar/Sidebar';
+import Main from './components/main/Main';
+import Home from './page/Home';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [navbar,setNavbar] = useState("");
+
+ 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+    <Routes>
+    <Route path="/" element = {<Home navbar={navbar} setNavbar={setNavbar} />} />
+    <Route path={`/${navbar}`} element = {<Home navbar={navbar} setNavbar={setNavbar} />} />
+
+    </Routes>
     </div>
   );
 }
